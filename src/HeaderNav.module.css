@@ -1,0 +1,73 @@
+/* 
+colors to use in project::
+
+5B515F wenge
+647B65 reseda green
+D0B4C7 thistle
+423357 english violet
+5E538F ultra violet
+011309 night
+999EAF cool gray
+
+
+
+
+*/
+
+li, ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 1rem;
+    
+}
+
+header {
+    position: sticky;
+    background-color: #413255;
+    color: white;
+    box-shadow: 0 0 10px #011309;
+    top: 0;
+}
+
+ul {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+button {
+    padding: 1em;
+    background-color: #413255;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+    border: 2px solid #d0b4c783;
+    transition: border .2s linear;
+}
+
+button:hover {
+    border: 2px solid #D0B4C7; 
+     
+}
+
+.cartCount {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: .6rem;
+    font-size: .8em;
+    background-color: #5E538F;
+    color: white;
+    border-radius: 1000px;
+}
+
+/* .countInCircle {
+
+} */
