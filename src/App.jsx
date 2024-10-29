@@ -1,21 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, createContext } from 'react'
+import { Routes, Route} from 'react-router-dom';
 import './App.css'
+import Home from './Home.jsx';
+import Shop from './Shop.jsx';
+import HeaderNav from './HeaderNav.jsx';
+import CartContext from './CartContext.jsx';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cartItems, setCartItems] = useState(1000);
+
+
 
   return (
     <>
-      <h1>{count}</h1>
-      <button onClick={() => {
-        setCount(prev => prev + 1)
-      }}>Increment</button>
-      <p>Hello World</p>
-      
+    <HeaderNav shoppingCartCount={cartItems}/>
+      <CartContext.Provider value={{cartItems, setCartItems}}>
+      <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/shop' element={<Shop/>}/>
+      </Routes>
+      </CartContext.Provider>
     </>
   )
 }
 
-export default App
+export default App;

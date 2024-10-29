@@ -1,15 +1,18 @@
-import HeaderNav from './HeaderNav.jsx';
-import { useState } from 'react';
+import HeaderNav from "./HeaderNav.jsx";
+import { useContext } from "react";
+import CartContext from "./CartContext.jsx";
 
 function Home() {
-    const [shoppingCartCount, setshoppingCartCount] = useState(1);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
-    return (
-        <>
-            <HeaderNav shoppingCartCount={shoppingCartCount}/>
-            <h1 className='hello'>Hello</h1>
-        </>
-    )
+  return (
+    <>
+      <h1 className="hello">This is Home{cartItems}</h1>
+      <button onClick={()=> {
+        setCartItems(prev => prev + 1)
+      }}>Click to add items to cart</button>
+    </>
+  );
 }
 
 export default Home;
