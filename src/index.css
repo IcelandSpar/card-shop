@@ -12,3 +12,7 @@
   font-variation-settings: 100;
   src: url();
 }
+
+body {
+  background-color: #3b345c;
+}

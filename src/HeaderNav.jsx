@@ -1,15 +1,11 @@
 import styles from "./HeaderNav.module.css";
 import PropTypes from "prop-types";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import cartImg from "./assets/cart-img.svg";
 import shopLogo from "./assets/trading.png";
 
 function HeaderNav(props) {
-  let navigate = useNavigate();
-  const routeToShop = () => {
-    let path = "/shop";
-    navigate(path);
-  };
+
 
   return (
     <header className={styles["head"]}>
@@ -18,14 +14,14 @@ function HeaderNav(props) {
           {/* <a href="https://www.flaticon.com/free-icons/collection" title="collection icons">Collection icons created by Becris - Flaticon</a> */}
           <li className={styles["listItem"]}>
             <Link to='/'>
-              <button onClick={routeToShop} className={styles["navBtn"]}>
+              <button className={styles["navBtn"]}>
                 Home
               </button>
             </Link>
           </li>
           <li className={styles["listItem"]}>
             <Link to='/shop'>
-              <button onClick={routeToShop} className={styles["navBtn"]}>
+              <button className={styles["navBtn"]}>
                 Shop
               </button>
             </Link>

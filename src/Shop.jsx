@@ -1,4 +1,3 @@
-import HeaderNav from './HeaderNav.jsx';
 import { useContext } from 'react';
 import CartContext from './CartContext.jsx';
 

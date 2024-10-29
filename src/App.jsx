@@ -1,10 +1,11 @@
-import { useState, createContext } from 'react'
-import { Routes, Route} from 'react-router-dom';
+import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
 import './App.css'
 import Home from './Home.jsx';
 import Shop from './Shop.jsx';
 import HeaderNav from './HeaderNav.jsx';
 import CartContext from './CartContext.jsx';
+import ErrorBoundary from './ErrorBoundary.jsx';
 
 
 
@@ -17,10 +18,11 @@ function App() {
     <>
     <HeaderNav shoppingCartCount={cartItems}/>
       <CartContext.Provider value={{cartItems, setCartItems}}>
-      <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/shop' element={<Shop/>}/>
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/shop' element={<Shop/>}/>
+          <Route path='*' element={<ErrorBoundary/>}/>
+        </Routes>
       </CartContext.Provider>
     </>
   )
