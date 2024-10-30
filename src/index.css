@@ -16,3 +16,43 @@
 body {
   background-color: #3b345c;
 }
+
+.toggleClear {
+  animation: 6s clear ease-out infinite;
+  
+}
+
+.toggleAnimation {
+  animation: 3s rightToLeft ease-out;
+}
+
+@keyframes clear {
+  from {
+      opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+    scale: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    scale: 0;
+    transform: translateY(-1000px);
+  }
+}
+
+@keyframes rightToLeft {
+  from {
+      transform: translateX(100%);
+      opacity: 1;
+  }
+
+  to {
+      transform: translateX(0px);
+      opacity: 1;
+  }
+  
+}
