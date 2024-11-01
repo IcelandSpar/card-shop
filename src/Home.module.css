@@ -48,6 +48,8 @@
     height: 500px;
     border-radius: 30px;
     object-fit: cover;
+    transform: translateX(100%);
+   
     /* animation: 3s rightToLeft ease-out infinite; */
 
 }

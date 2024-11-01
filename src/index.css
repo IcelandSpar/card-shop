@@ -18,41 +18,43 @@ body {
 }
 
 .toggleClear {
-  animation: 6s clear ease-out infinite;
+  animation: 2s clear ease-out forwards;
+
   
 }
 
 .toggleAnimation {
-  animation: 3s rightToLeft ease-out;
+  animation: 2s rightToLeft ease-out forwards;
+  
 }
 
 @keyframes clear {
   from {
       opacity: 1;
+      transform: translateX(0);
   }
 
-  80% {
-    opacity: 1;
-    scale: 1;
-    transform: translateX(0);
-  }
+
 
   to {
     opacity: 0;
-    scale: 0;
-    transform: translateY(-1000px);
+
+    transform: translateX(-100%);
+    scale: -25%;
   }
 }
 
 @keyframes rightToLeft {
   from {
-      transform: translateX(100%);
+      scale: 50%;
+      transform: translateX(150%);
       opacity: 1;
   }
 
   to {
-      transform: translateX(0px);
+      transform: translateX(0%);
       opacity: 1;
+      scale: 1;
   }
   
 }

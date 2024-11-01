@@ -8,6 +8,7 @@ import dragonPokeCard from "./assets/dragon-poke-card.jpg";
 import proppedYugiCard from "./assets/propped-yugi-card.jpg";
 import holdingYugiCards from "./assets/holding-yugi-cards.jpg";
 import chariSleeved from "./assets/chari-sleeved.jpg";
+import { clear } from "@testing-library/user-event/dist/cjs/utility/clear.js";
 
 function Home() {
   const { cartItems, setCartItems } = useContext(CartContext);
@@ -24,26 +25,46 @@ function Home() {
     chariSleeved,
   ];
 
+
   useEffect(() => {
 
     const photoIndxInt = autoPlay && setInterval(() => {
 
 
-      prevPhotoIndx + 1 > homepagePhotos.length - 1
-        ? setPrevPhotoIndx(0)
-        : setPrevPhotoIndx((prev) => prev + 1);
-      currentPhotoIndex + 1 > homepagePhotos.length - 1
-        ? setCurrentPhotoIndex(0)
-        : setCurrentPhotoIndex((prev) => prev + 1);
+      document.querySelector('.prevCardImg').classList.add('toggleClear');
+      document.querySelector('.cardImages').classList.add('toggleAnimation');
 
-    }, 4000);
+
+const animation = autoPlay && setInterval(()=> {
+  prevPhotoIndx + 1 > homepagePhotos.length - 1
+  ? setPrevPhotoIndx(0)
+  : setPrevPhotoIndx(prev => prev + 1)
+
+currentPhotoIndex + 1 > homepagePhotos.length - 1
+  ? setCurrentPhotoIndex(0)
+  : setCurrentPhotoIndex((prev) => prev + 1);
+
+  document.querySelector('.prevCardImg').classList.remove('toggleClear');
+  document.querySelector('.cardImages').classList.remove('toggleAnimation');
+
+  clearInterval(animation)
+}, 3000)
+
+
+
+
+
+    }, 6000);
+
+
+
 
     return () => {
-
       clearInterval(photoIndxInt);
-
     };
   });
+
+
 
   // Photo by Erik Mclean: https://www.pexels.com/photo/card-collection-in-cases-9661256/
   // Photo by <a href="https://unsplash.com/@steven3466?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Steven Cordes</a> on <a href="https://unsplash.com/photos/a-pokemon-trading-card-sitting-on-top-of-a-table-8ng-g70XRbI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
@@ -82,11 +103,11 @@ function Home() {
             className={`${styles["prevCardImg"]} prevCardImg`}
             src={homepagePhotos[prevPhotoIndx]}
           />
-          {/* <img
-            className={`${styles["cardsImages"]} cardImages`}
+          <img
+            className={`${styles["cardsImages"]} cardImages ${styles['clear']}`}
             src={homepagePhotos[currentPhotoIndex]}
             alt="Trading Cards"
-          /> */}
+          />
         </div>
       </section>
     </main>
