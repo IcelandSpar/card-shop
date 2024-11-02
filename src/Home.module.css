@@ -26,7 +26,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-
     line-height: 1.7rem;
     height: 100%;
 
@@ -52,6 +51,26 @@
    
     /* animation: 3s rightToLeft ease-out infinite; */
 
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(198, 132, 236);
+    border-radius: 1000px;
+}
+
+.activeDot {
+    
+    animation: 3s darken ease-out forwards;
 }
 
 .prevCardImg {
@@ -93,6 +112,16 @@
 
     to {
         opacity: 0;
+    }
+}
+
+@keyframes darken {
+    from {
+        background-color: rgb(198, 132, 236);
+    }
+
+    to {
+        background-color: black;
     }
 }
 

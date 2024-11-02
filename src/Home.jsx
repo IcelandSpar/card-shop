@@ -27,13 +27,15 @@ function Home() {
 
 
   useEffect(() => {
+    prevPhotoIndx == 0 ? document.querySelector(`.dot${prevPhotoIndx}`).classList.add(styles['activeDot']) : null;
 
     const photoIndxInt = autoPlay && setInterval(() => {
 
+      document.querySelector(`.dot${prevPhotoIndx}`).classList.remove(styles['activeDot']);
 
       document.querySelector('.prevCardImg').classList.add('toggleClear');
       document.querySelector('.cardImages').classList.add('toggleAnimation');
-
+      document.querySelector(`.dot${currentPhotoIndex}`).classList.toggle(styles['activeDot'])
 
 const animation = autoPlay && setInterval(()=> {
   prevPhotoIndx + 1 > homepagePhotos.length - 1
@@ -80,14 +82,14 @@ currentPhotoIndex + 1 > homepagePhotos.length - 1
         <div className={styles["descriptContainer"]}>
           <h2 className={styles["descriptTitle"]}>We sell overpriced cards!</h2>
           <p className={styles["descriptPara"]}>
-            ~Our customers have a 100% chance of pulling an energy!
+            ~ Our customers have a 100% chance of pulling an energy!
           </p>
           <p>
-            ~Ever since we started this scalping business, our sales have sky
+            ~ Ever since we started this scalping business, our sales have sky
             <em>rocketed!</em> (Go Team 🚀!).
           </p>
           <p className={styles["descriptPara"]}>
-            ~All of our cards are rated with a grade of 1 (our warehouse had
+            ~ All of our cards are rated with a grade of 1 (our warehouse has
             water damage).
           </p>
         </div>
@@ -99,6 +101,7 @@ currentPhotoIndex + 1 > homepagePhotos.length - 1
           setAutoPlay(true);
         }}
         >
+          
           <img
             className={`${styles["prevCardImg"]} prevCardImg`}
             src={homepagePhotos[prevPhotoIndx]}
@@ -109,7 +112,15 @@ currentPhotoIndex + 1 > homepagePhotos.length - 1
             alt="Trading Cards"
           />
         </div>
+
       </section>
+
+      <div className={styles['dots']}>
+      {homepagePhotos.map((photo, indx) => {
+        return (<div key={indx}className={`${styles['dot']} ${'dot' + indx} dot${indx}`}></div>)
+      })}
+
+      </div>
     </main>
   );
 }
