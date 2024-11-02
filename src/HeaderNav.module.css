@@ -28,6 +28,7 @@ D0B4C7 thistle
     margin: 0 .5rem;
     max-width: 1366px;
     margin: 0 auto;
+
 }
 
 .head {
@@ -36,6 +37,7 @@ D0B4C7 thistle
     color: white;
     box-shadow: 0 0 10px #011309;
     top: 0;
+    z-index: 4000;
 }
 
 .unorderedList {

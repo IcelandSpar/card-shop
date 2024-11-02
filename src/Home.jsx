@@ -25,49 +25,51 @@ function Home() {
     chariSleeved,
   ];
 
-
   useEffect(() => {
-    prevPhotoIndx == 0 ? document.querySelector(`.dot${prevPhotoIndx}`).classList.add(styles['activeDot']) : null;
+    prevPhotoIndx == 0
+      ? document
+          .querySelector(`.dot${prevPhotoIndx}`)
+          .classList.add(styles["activeDot"])
+      : null;
 
-    const photoIndxInt = autoPlay && setInterval(() => {
+    const photoIndxInt =
+      autoPlay &&
+      setInterval(() => {
+        document
+          .querySelector(`.dot${prevPhotoIndx}`)
+          .classList.remove(styles["activeDot"]);
 
-      document.querySelector(`.dot${prevPhotoIndx}`).classList.remove(styles['activeDot']);
+        document.querySelector(".prevCardImg").classList.add("toggleClear");
+        document.querySelector(".cardImages").classList.add("toggleAnimation");
+        document
+          .querySelector(`.dot${currentPhotoIndex}`)
+          .classList.toggle(styles["activeDot"]);
 
-      document.querySelector('.prevCardImg').classList.add('toggleClear');
-      document.querySelector('.cardImages').classList.add('toggleAnimation');
-      document.querySelector(`.dot${currentPhotoIndex}`).classList.toggle(styles['activeDot'])
+        const animation =
+          autoPlay &&
+          setInterval(() => {
+            prevPhotoIndx + 1 > homepagePhotos.length - 1
+              ? setPrevPhotoIndx(0)
+              : setPrevPhotoIndx((prev) => prev + 1);
 
-const animation = autoPlay && setInterval(()=> {
-  prevPhotoIndx + 1 > homepagePhotos.length - 1
-  ? setPrevPhotoIndx(0)
-  : setPrevPhotoIndx(prev => prev + 1)
+            currentPhotoIndex + 1 > homepagePhotos.length - 1
+              ? setCurrentPhotoIndex(0)
+              : setCurrentPhotoIndex((prev) => prev + 1);
 
-currentPhotoIndex + 1 > homepagePhotos.length - 1
-  ? setCurrentPhotoIndex(0)
-  : setCurrentPhotoIndex((prev) => prev + 1);
+            document
+              .querySelector(".prevCardImg")
+              .classList.remove("toggleClear");
+            document
+              .querySelector(".cardImages")
+              .classList.remove("toggleAnimation");
 
-  document.querySelector('.prevCardImg').classList.remove('toggleClear');
-  document.querySelector('.cardImages').classList.remove('toggleAnimation');
-
-  clearInterval(animation)
-}, 3000)
-
-
-
-
-
-    }, 6000);
-
-
-
-
+            clearInterval(animation);
+          }, 3000);
+      }, 6000);
     return () => {
       clearInterval(photoIndxInt);
     };
   });
-
-
-
   // Photo by Erik Mclean: https://www.pexels.com/photo/card-collection-in-cases-9661256/
   // Photo by <a href="https://unsplash.com/@steven3466?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Steven Cordes</a> on <a href="https://unsplash.com/photos/a-pokemon-trading-card-sitting-on-top-of-a-table-8ng-g70XRbI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   // Photo by <a href="https://unsplash.com/@steven3466?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Steven Cordes</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-card-on-a-table-V_XUEeakBKE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
@@ -93,34 +95,53 @@ currentPhotoIndex + 1 > homepagePhotos.length - 1
             water damage).
           </p>
         </div>
-        <div className={styles["imgCarousel"]}
-        onMouseEnter={() => {
-          setAutoPlay(false);
-        }}
-        onMouseLeave={() => {
-          setAutoPlay(true);
-        }}
+        <div
+          className={styles["imgCarousel"]}
+          onMouseEnter={() => {
+            setAutoPlay(false);
+          }}
+          onMouseLeave={() => {
+            setAutoPlay(true);
+          }}
         >
-          
           <img
             className={`${styles["prevCardImg"]} prevCardImg`}
             src={homepagePhotos[prevPhotoIndx]}
           />
           <img
-            className={`${styles["cardsImages"]} cardImages ${styles['clear']}`}
+            className={`${styles["cardsImages"]} cardImages ${styles["clear"]}`}
             src={homepagePhotos[currentPhotoIndex]}
             alt="Trading Cards"
           />
         </div>
-
+        <div></div>
+        <div className={styles["dots"]}>
+          {homepagePhotos.map((photo, indx) => {
+            return (
+              <div
+                key={indx}
+                className={`${styles["dot"]} ${"dot" + indx} dot${indx}`}
+              ></div>
+            );
+          })}
+        </div>
       </section>
-
-      <div className={styles['dots']}>
-      {homepagePhotos.map((photo, indx) => {
-        return (<div key={indx}className={`${styles['dot']} ${'dot' + indx} dot${indx}`}></div>)
-      })}
-
-      </div>
+      <section className={styles['middleSect']}>
+        <ul className={styles['middleSectListContainer']}>
+          <li className={styles['sectListItem']}>
+            <h3>Unaffordable</h3>
+            <p>We take pride in charging you exorbitant prices. We have a rather well implemented monopoly in the trading card space.</p>
+          </li>
+          <li className={styles['sectListItem']}>
+            <h3>Fake Cards</h3>
+            <p>We simply take all the good ones out and generously replace them with energies and magikarps 🐟.</p>
+          </li>
+          <li className={styles['sectListItem']}>
+            <h3>Terrible Delivery</h3>
+            <p>We can&apos;t guarantee your packages to arrive...in time. If you aren't satisfied, you can contact your local police department. They won't be able to find us.</p>
+          </li>
+        </ul>
+      </section>
     </main>
   );
 }
