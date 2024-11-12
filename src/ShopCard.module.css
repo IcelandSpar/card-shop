@@ -1,0 +1,34 @@
+.cardBackgroundGradient {
+    cursor: pointer;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    border-radius: 15px;
+    padding: 2px;
+    transition: .2s box-shadow ease-out;
+}
+
+.cardBackgroundGradient:hover {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.144);
+}
+
+.cardContainer {
+    background-color: #413255;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    padding: 1rem 1rem;
+}
+
+.cardImg {
+    width: 100%;
+    max-width: 300px;
+    transition: transform .3s ease-out;
+    border-radius: 15px;
+}
+
+.cardBackgroundGradient:hover .cardImg {
+    transform: scale(1.03);
+}
