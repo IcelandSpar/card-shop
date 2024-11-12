@@ -9,6 +9,7 @@ function ShopCard({card, indx}) {
                 <li key={indx} className={`${styles['cardContainer']} .cardContainer`}>
                     <img src={card["images"]["large"]} alt={card.name} className={`${styles["cardImg"]} cardImg${indx}`}/>
                     <p className={styles['font']}>{card.name}</p>
+                    <p>{card.rarity == null || card.rarity == undefined ? 'Rarity missing' : card.rarity}</p>
                     <p>${Object.values(card["tcgplayer"]["prices"])[0]['market']}</p>
                 </li>
             </div>

@@ -6,12 +6,16 @@ import styles from './Shop.module.css';
 function Shop() {
     const {cartItems} = useContext(CartContext);
     const [cardData, setCardData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=> {
         fetch('http://localhost:5000/', {mode: "cors"})
             .then((response) => response.json())
             .then((response) => setCardData(prev => response.data.filter((value) => (value["tcgplayer"] != undefined) && (value != undefined) && (value["images"]["large"] != undefined) && (value["images"] != undefined) && (value["tcgplayer"]["prices"] != null || undefined))))
-            .catch((error) => console.log(error));
+            .catch((error) => console.log(error))
+            .finally(()=> {
+                setIsLoading(false);
+            });
 
     },[])
 
@@ -35,7 +39,11 @@ function Shop() {
         
     })
 
-
+    if(isLoading == true) {
+        return (
+            <h3>Loading Cards...</h3>
+        )
+    }
 
     return(
         <>
