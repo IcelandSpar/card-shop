@@ -20,7 +20,7 @@ function App() {
       <CartContext.Provider value={{cartItems, setCartItems}}>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/shop' element={<Shop/>}/>
+          <Route path='/shop' element={<Shop/>} errorElement={<ErrorBoundary/>}/>
           <Route path='*' element={<ErrorBoundary/>}/>
         </Routes>
       </CartContext.Provider>

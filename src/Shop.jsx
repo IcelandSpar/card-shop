@@ -2,17 +2,22 @@ import { useContext, useEffect, useState } from 'react';
 import CartContext from './CartContext.jsx';
 import ShopCard from './ShopCard.jsx';
 import styles from './Shop.module.css';
+import ErrorBoundary from './ErrorBoundary.jsx';
 
 function Shop() {
     const {cartItems} = useContext(CartContext);
     const [cardData, setCardData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isThereError, setIsThereError] = useState(false);
 
     useEffect(()=> {
         fetch('http://localhost:5000/', {mode: "cors"})
             .then((response) => response.json())
             .then((response) => setCardData(prev => response.data.filter((value) => (value["tcgplayer"] != undefined) && (value != undefined) && (value["images"]["large"] != undefined) && (value["images"] != undefined) && (value["tcgplayer"]["prices"] != null || undefined))))
-            .catch((error) => console.log(error))
+            .catch((error) => {
+                console.log(error);
+                setIsThereError(prev => true);
+            })
             .finally(()=> {
                 setIsLoading(false);
             });
@@ -38,6 +43,12 @@ function Shop() {
         
         
     })
+
+    if(isThereError) {
+        return (
+            <ErrorBoundary/>
+        )
+    }
 
     if(isLoading == true) {
         return (
