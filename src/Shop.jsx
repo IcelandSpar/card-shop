@@ -52,7 +52,10 @@ function Shop() {
 
     if(isLoading == true) {
         return (
-            <h3>Loading Cards...</h3>
+            <section className={styles['loadCardsSection']}>
+                    <p className={styles['loadCardsText']}>LoadingCards<div className={styles['loadingDot1']}>.</div><div className={styles['loadingDot2']}>.</div><div className={styles['loadingDot3']}>.</div></p>
+            </section>
+            
         )
     }
 

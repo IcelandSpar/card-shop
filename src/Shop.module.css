@@ -13,3 +13,40 @@
 
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+
+
+
+.loadCardsText {
+    color: white;
+    display: flex;
+    margin: 4rem auto;
+    justify-content: center;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.loadingDot1 {
+    animation: .5s loadingDots .1s infinite;
+}
+
+.loadingDot2 {
+    animation: .5s loadingDots .3s infinite;
+}
+
+.loadingDot3 {
+    animation: .5s loadingDots .5s infinite;
+}
+
+@keyframes loadingDots {
+    from {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
