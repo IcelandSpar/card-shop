@@ -33,3 +33,18 @@
 .cardBackgroundGradient:hover .cardImg {
     transform: scale(1.03);
 }
+
+.modal {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
