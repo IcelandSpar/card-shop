@@ -47,7 +47,11 @@ function HeaderNav(props) {
           {props.shoppingCartCount.length != 0 ? (
                 <div className={styles["cartCount"]}>
                   <p className={styles["countInCircle"]}>
-                    {props.shoppingCartCount.length}
+                  {
+                    (props.shoppingCartCount).reduce((acc, currVal) => {
+                      return acc + Number(currVal.itemCount)
+                    }, 0)
+                  }
                   </p>
                 </div>
               ) : null}

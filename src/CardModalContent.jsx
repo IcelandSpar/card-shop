@@ -3,7 +3,7 @@ import { useState, useContext } from 'react';
 import CartContext from './CartContext';
 
 function CardModalContent({card, handleClose, floatingCard, indx}) {
-    const [itemCount, setItemCount] = useState(0);
+    const [itemCount, setItemCount] = useState(1);
     const {cartItems, setCartItems} = useContext(CartContext);
     const addItemCount = () => {
         setItemCount(prev => {
