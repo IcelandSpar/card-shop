@@ -45,9 +45,15 @@ function CardModalContent({card, handleClose, floatingCard, indx}) {
                 </div>
                 <div className={styles['cardInfoAndPurchase']}>
                     <div className={styles['cardInfoContainer']}>
-                        <h3 className={styles['cardTitle']}>{card.name}</h3>
-                        <p>Rarity: {card.rarity == null || card.rarity == undefined ? 'Rarity missing' : card.rarity}</p>
-                        <p className={styles['cardPrice']}>${Object.values(card["tcgplayer"]["prices"])[0]['market']}</p>
+                        <div className={styles['nameAndSymbol']}>
+                            <img className={styles['cardSymbolImage']} src={card['set']['images']['symbol']} alt="symbol" width='23px' height='23px'/>
+                            <h3 className={styles['cardTitle']}>{card.name}</h3>
+                        </div>
+                        <p>Set: &nbsp;<u>{card['set']['name']}</u></p>
+                        <p>Artist: &nbsp;<u>{card.artist}</u></p>
+                        <p>Rarity: &nbsp;<u>{card.rarity == null || card.rarity == undefined ? 'Rarity missing' : card.rarity}</u></p>
+                        <p className={styles['flavorText']}>{card.flavorText ? card.flavorText : 'Description Missing (｡•́︿•̀｡)'}</p>
+                        <p className={styles['cardPrice']}>${Number.parseFloat(Object.values(card["tcgplayer"]["prices"])[0]['market']).toFixed(2)}</p>
                     </div>
                     <div className={styles['cardShoppingInterface']}>
                         <div className={styles['cardCountCont']}>
@@ -58,7 +64,6 @@ function CardModalContent({card, handleClose, floatingCard, indx}) {
                         <button className={styles['addToCartBtn']} onClick={()=> {
                             setCartItems([...cartItems,{poke: 'items'}])
                             handleClose()
-                            console.log(cartItems)
                         }}>Add to Cart</button>
                     </div>
                 </div>

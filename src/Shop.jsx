@@ -53,7 +53,7 @@ function Shop() {
     if(isLoading == true) {
         return (
             <section className={styles['loadCardsSection']}>
-                    <p className={styles['loadCardsText']}>LoadingCards<div className={styles['loadingDot1']}>.</div><div className={styles['loadingDot2']}>.</div><div className={styles['loadingDot3']}>.</div></p>
+                    <p className={styles['loadCardsText']}>Loading Cards<div className={styles['loadingDot1']}>.</div><div className={styles['loadingDot2']}>.</div><div className={styles['loadingDot3']}>.</div></p>
             </section>
             
         )

@@ -7,7 +7,7 @@
     padding: 5px;
     width: 80vw;
     max-width: 750px;
-    animation: modalEase .3s forwards ease-out;
+    animation: modalEase .2s forwards ease-out;
 }
 
 .modalBackground {
@@ -28,6 +28,11 @@
 
 .cardImage {
     width: 100%;
+}
+
+.cardSymbolImage {
+    object-fit: contain;
+    width: 30px;
 }
 
 .closeBtn {
@@ -54,6 +59,16 @@
 
 .cardTitle {
     font-size: 2.2rem;
+}
+
+.nameAndSymbol {
+    display: flex;
+    gap: .7rem;
+    align-items: center;
+}
+
+.flavorText {
+    font-size: .8rem;
 }
 
 .cardPrice {
@@ -114,6 +129,12 @@
     }
 }
 
+@media (max-width: 714px) {
+    .addToCartBtn {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 500px) {
 
 
@@ -126,10 +147,15 @@
 }
 
 .addToCartBtn {
-    font-size: 1rem;
+    font-size: .7rem;
 }
 
 .decremCountBtn, .addCountBtn {
     font-size: 1.2rem;
 }
+
+.modalOutline {
+    width: 100%;
 }
+}
+
