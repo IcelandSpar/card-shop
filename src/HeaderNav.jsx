@@ -44,10 +44,10 @@ function HeaderNav(props) {
           </li>
         <ul className={styles["unorderedList"]}>
           <li className={styles["listItem"]}>
-          {props.shoppingCartCount != 0 ? (
+          {props.shoppingCartCount.length != 0 ? (
                 <div className={styles["cartCount"]}>
                   <p className={styles["countInCircle"]}>
-                    {props.shoppingCartCount}
+                    {props.shoppingCartCount.length}
                   </p>
                 </div>
               ) : null}

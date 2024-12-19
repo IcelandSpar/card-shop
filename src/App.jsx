@@ -10,7 +10,7 @@ import ErrorBoundary from './ErrorBoundary.jsx';
 
 
 function App() {
-  const [cartItems, setCartItems] = useState(1000);
+  const [cartItems, setCartItems] = useState([]);
 
 
 
@@ -22,6 +22,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/shop' element={<Shop/>} errorElement={<ErrorBoundary/>}/>
           <Route path='*' element={<ErrorBoundary/>}/>
+          {/* <Route path='/checkout' element={}/> */}
         </Routes>
       </CartContext.Provider>
     </>

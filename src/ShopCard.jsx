@@ -2,7 +2,7 @@ import styles from './ShopCard.module.css';
 import { useState } from 'react';
 import CardModalContent from './CardModalContent.jsx';
 
-function ShopCard({card, indx}) {
+function ShopCard({card, indx, floatingCard}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleOpen = () => {
@@ -17,8 +17,10 @@ function ShopCard({card, indx}) {
     if((card["tcgplayer"] != undefined) && (card != undefined) && (card["images"]["large"] != undefined) && (card["images"] != undefined) && (card["tcgplayer"]["prices"] != null || undefined)) {
         return (
             <>
-                {isModalOpen ? <div className={styles['modal']}>
-                    <CardModalContent card={card} handleClose={handleClose}/>
+                {isModalOpen ? <div className={`${styles['modal']} outsideModal`} onClick={(e)=> {
+                    Array.from(e.target.classList).includes('outsideModal') == true ? handleClose() : null;
+                }}>
+                    <CardModalContent card={card} handleClose={handleClose} floatingCard={floatingCard} indx={indx} imageClassName={`.cardImg${indx}`}/>
                 </div>: null}
                 
 

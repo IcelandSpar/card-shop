@@ -64,7 +64,7 @@ function Shop() {
             <ul className={styles['unorderList']}>
                 {cardData.map((card, indx)=> {
                     return (
-                        <ShopCard key={indx} card={card} indx={indx}/>
+                        <ShopCard key={indx} card={card} indx={indx} floatingCard={floatingCard}/>
                     )
                 })}
             </ul>
