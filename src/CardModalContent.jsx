@@ -22,26 +22,14 @@ function CardModalContent({card, handleClose, floatingCard, indx}) {
         })
     }
 
-    const floatingCards = (e) => {
-        
-        document.querySelector('.activeImageAnim').addEventListener('mouseout', (e) => {
-            document.querySelector(`.activeImageAnim`).style.transform = `perspective(400px) scale(1) rotateX(${0}deg) rotateY(${0}deg) rotateZ(0deg)`;
 
-    })
-
-        document.querySelector('.activeImageAnim').addEventListener('mousemove', (e) => {
-            document.querySelector(`.activeImageAnim`).style.transform = `perspective(400px) scale(1.05) rotateX(${(1 - (e.offsetY - e.clientHeight) / e.clientWidth)}deg) rotateY(${(e.offsetX - e.clientWidth * 0.5) / 5}deg)`;
-        })
-    }
 
     return (
         <section className={styles['modalOutline']}>
             <div className={styles['modalBackground']}>
 
                 <div className={styles['cardContainer']}>
-                    <img src={card["images"]["large"]} alt={card.name} className={`${styles['cardImage']} activeImageAnim`} onMouseEnter={(e) => {
-                        floatingCards(e)
-                    }}/>
+                    <img src={card["images"]["large"]} alt={card.name} className={`${styles['cardImage']} activeImageAnim`}/>
                 </div>
                 <div className={styles['cardInfoAndPurchase']}>
                     <div className={styles['cardInfoContainer']}>
@@ -62,7 +50,17 @@ function CardModalContent({card, handleClose, floatingCard, indx}) {
                             <button onClick={addItemCount} className={styles['addCountBtn']}>+</button>
                         </div>
                         <button className={styles['addToCartBtn']} onClick={()=> {
-                            setCartItems([...cartItems,{poke: 'items'}])
+                            if(itemCount != 0) {
+                                setCartItems([...cartItems,{
+                                    name: `${card.name}`,
+                                    price: `${Number.parseFloat(Object.values(card["tcgplayer"]["prices"])[0]['market']).toFixed(2)}`,
+                                    itemCount: itemCount,
+                                    totalPrice: `${(Number.parseFloat(Object.values(card["tcgplayer"]["prices"])[0]['market']).toFixed(2) * itemCount)}`,
+                                    imageUrl: `${card["images"]["large"]}`,
+                                }])
+                            }
+
+                            console.log(cartItems);
                             handleClose()
                         }}>Add to Cart</button>
                     </div>

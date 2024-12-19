@@ -40,8 +40,7 @@
     margin: 0 auto;
     position: absolute;
     right: 1rem;
-    border: 2px solid rgba(245, 245, 245, 0.514);
-    border-radius: 5px;
+
     padding: .3rem;
     cursor: pointer;
 }
@@ -103,6 +102,8 @@
 
 .addToCartBtn {
     font-size: 2rem;
+    border-radius: 15px;
+    border: none;
 }
 
 .decremCountBtn, .addCountBtn, .addToCartBtn {
@@ -112,9 +113,15 @@
 .decremCountBtn, .addCountBtn {
     font-size: 2rem;
     background-color: #413255;
-    border: 2px solid rgba(245, 245, 245, 0.219);
+
     border-radius: 5px;
     color: white;
+    border: 2px solid #d0b4c783;
+    transition: border .2s linear;
+}
+
+.decremCountBtn:hover, .addCountBtn:hover {
+    border: 2px solid rgba(245, 245, 245, 0.76);
 }
 
 @keyframes modalEase {
