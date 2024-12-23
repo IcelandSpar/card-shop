@@ -133,3 +133,15 @@ D0B4C7 thistle
         transform: rotate(360deg);
     }
 }
+
+@media (max-width: 658px) {
+    .shopLogo {
+        width: 50px;
+        object-fit: contain;
+    }
+    
+    .storeTitle {
+
+        font-size: .6rem;
+    }
+}

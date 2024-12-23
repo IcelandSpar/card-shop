@@ -37,7 +37,10 @@ function CardModalContent({card, handleClose, floatingCard, indx}) {
                             <img className={styles['cardSymbolImage']} src={card['set']['images']['symbol']} alt="symbol" width='23px' height='23px'/>
                             <h3 className={styles['cardTitle']}>{card.name}</h3>
                         </div>
-                        <p>Set: &nbsp;<u>{card['set']['name']}</u></p>
+                        <div className={styles['setLogoAndName']}>
+                            <p>Set: &nbsp;<u>{card['set']['name']}</u></p>
+                            <img className={styles['setLogoImage']} src={card['set']['images']['logo']} alt="set logo"/>
+                        </div>
                         <p>Artist: &nbsp;<u>{card.artist}</u></p>
                         <p>Rarity: &nbsp;<u>{card.rarity == null || card.rarity == undefined ? 'Rarity missing' : card.rarity}</u></p>
                         <p className={styles['flavorText']}>{card.flavorText ? card.flavorText : 'Description Missing (｡•́︿•̀｡)'}</p>
