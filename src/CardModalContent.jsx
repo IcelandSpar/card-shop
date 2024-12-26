@@ -58,7 +58,7 @@ function CardModalContent({card, handleClose, floatingCard, indx}) {
                                     name: `${card.name}`,
                                     price: `${Number.parseFloat(Object.values(card["tcgplayer"]["prices"])[0]['market']).toFixed(2)}`,
                                     itemCount: itemCount,
-                                    totalPrice: `${(Number.parseFloat(Object.values(card["tcgplayer"]["prices"])[0]['market']).toFixed(2) * itemCount)}`,
+                                    totalPrice: `${(Number.parseFloat(Object.values(card["tcgplayer"]["prices"])[0]['market']).toFixed(2) * itemCount).toFixed(2)}`,
                                     imageUrl: `${card["images"]["large"]}`,
                                 }])
                             }

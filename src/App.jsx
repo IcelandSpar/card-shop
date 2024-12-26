@@ -20,7 +20,7 @@ function App() {
   return (
     <>
     <SideBarContext.Provider value={{showSideBar, setShowSideBar}}>
-      <ShoppingCartSideBar></ShoppingCartSideBar>
+      <ShoppingCartSideBar cartItems={cartItems}></ShoppingCartSideBar>
     <HeaderNav shoppingCartCount={cartItems}/>
       <CartContext.Provider value={{cartItems, setCartItems}}>
         <Routes>

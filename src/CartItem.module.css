@@ -1,0 +1,42 @@
+.cartItemContainer {
+    list-style-type: none;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: 2fr 5fr 3fr;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.itemImage {
+    object-fit: contain;
+    align-self: center;
+    width: 100%;
+}
+
+.itemCountAndPrice {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-self: flex-end;
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.deleteBtn {
+    align-self: flex-start;
+}
+
+.itemPriceDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.totalItemPrice {
+    align-self: flex-end;
+}
