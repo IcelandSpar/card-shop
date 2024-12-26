@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import cartImg from "./assets/cart-img.svg";
 import shopLogo from "./assets/trading.png";
+import SideBarContext from "./SideBarContext.jsx";
+import { useContext } from 'react';
 
 function HeaderNav(props) {
-
+  const {showSideBar, setShowSideBar} = useContext(SideBarContext);
 
   return (
     <header className={styles["head"]}>
@@ -55,7 +57,9 @@ function HeaderNav(props) {
                   </p>
                 </div>
               ) : null}
-            <button className={`${styles["navBtn"]} ${styles["cartBtn"]}`}>
+            <button className={`${styles["navBtn"]} ${styles["cartBtn"]}`} onClick={() => {
+              setShowSideBar(true);
+            }}>
               <img
                 className={styles["cartImg"]}
                 src={cartImg}
