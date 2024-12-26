@@ -7,11 +7,11 @@
 }
 
 .sideBar {
-    background-color: blueviolet;
+    background-color: rgb(86, 26, 141);
     margin: 0 0 0 auto;
     border: 1px solid black;
-    max-width: 30%;
-    width: 500px;
+    max-width: 700px;
+    width: 50%;
     height: 100%;
     animation: sideBarSlide .2s forwards ease-out;
     position: relative;
@@ -23,12 +23,15 @@
     padding: .5rem 1rem;
     transition: opacity 1s ease-out forwards;
     scrollbar-width: none;
+    color: whitesmoke;
 }
 
 .closeBtn {
     align-self: flex-end;
-    background-color: blueviolet;
+    background-color: rgb(86, 26, 141);;
     border: none;
+    font-size: 1.5rem;
+    color: whitesmoke;
 }
 
 .shoppingCartHeader {
@@ -51,6 +54,7 @@
     padding: 1rem;
     border-radius: 15px;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 
@@ -63,6 +67,12 @@
     to {
         right: 0%;
         opacity: 1;
+    }
+}
+
+@media (max-width: 700px) {
+    .sideBar {
+        width: 100%;
     }
 }
 

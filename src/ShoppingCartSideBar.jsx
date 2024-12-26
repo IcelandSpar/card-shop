@@ -1,12 +1,14 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import SideBarContext from './SideBarContext.jsx';
 import styles from './ShoppingCartSideBar.module.css';
 import CartItem from './CartItem.jsx';
 
 
-function ShoppingCartSideBar({cartItems}) {
+function ShoppingCartSideBar({cartItems, setCartItems}) {
+
 
 const {showSideBar, setShowSideBar} = useContext(SideBarContext);
+
 
 
 if (showSideBar) {
@@ -25,15 +27,13 @@ if (showSideBar) {
                 <ul className={styles['unorderedItemList']}>
                     {cartItems.map((item, index) => {
                         return (
-                            <CartItem key={index} item={item}/>
+                            <CartItem key={index} item={item} cartItems={cartItems} setCartItems={setCartItems} index={index}/>
                         )
                     })}
                 </ul>
-                <h4 className={styles['overallTotal']}>Total: ${
-                    (cartItems).reduce((acc, currVal) => {
-                      return acc + Number(currVal.totalPrice)
-                    }, 0).toFixed(2)
-                  }</h4>
+                <h4 className={styles['overallTotal']}>Total: ${Number(cartItems.reduce((acc, curr) => {
+                    return acc + Number(curr.totalPrice)
+                }, 0)).toFixed(2)}</h4>
                 <button className={styles['checkoutBtn']}>Checkout</button>
             </aside>
         </div>
