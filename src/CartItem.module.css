@@ -1,6 +1,6 @@
 .cartItemContainer {
     list-style-type: none;
-    border-top: 1px solid black;
+    
     border-bottom: 1px solid black;
     display: grid;
     grid-template-columns: .3fr 2fr 5fr 3fr;
@@ -8,9 +8,17 @@
     padding: 1rem 0;
 }
 
+.itemQuantityDescAndNumber {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
 
 .itemCount {
     align-self: center;
+    justify-self: center;
+    
 }
 
 .itemName {

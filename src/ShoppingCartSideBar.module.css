@@ -9,7 +9,6 @@
 .sideBar {
     background-color: rgb(86, 26, 141);
     margin: 0 0 0 auto;
-    border: 1px solid black;
     max-width: 700px;
     width: 50%;
     height: 100%;
@@ -32,6 +31,12 @@
     border: none;
     font-size: 1.5rem;
     color: whitesmoke;
+    cursor: pointer;
+}
+
+.emptyCartText {
+    text-align: center;
+    margin: 2rem 0;
 }
 
 .shoppingCartHeader {
@@ -41,6 +46,7 @@
 
 .unorderedItemList {
     padding-inline-start: 0;
+    border-top: 1px solid black;
 }
 
 .overallTotal {

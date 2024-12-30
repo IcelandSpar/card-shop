@@ -1,11 +1,14 @@
 import styles from './CartItem.module.css';
 
 
-function CartItem({item, key, cartItems, setCartItems, index}) {
+function CartItem({item, setCartItems, index}) {
 
     return (
         <li className={styles['cartItemContainer']}>
-            <p className={styles['itemCount']}>{item.itemCount}</p>
+            <div className={styles['itemQuantityDescAndNumber']}>
+                <p>QTY</p>
+                <p className={styles['itemCount']}>{item.itemCount}</p>
+            </div>
             <img className={styles['itemImage']} src={item.imageUrl} alt={item.name} width={'60px'}/>
             <div className={styles['itemDetails']}>
                 <p className={styles['itemName']}>{item.name}</p>

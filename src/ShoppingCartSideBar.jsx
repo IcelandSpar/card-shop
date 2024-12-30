@@ -22,8 +22,8 @@ if (showSideBar) {
                 <button className={`${styles['closeBtn']}`} onClick={() => {
                     setShowSideBar(prev => false)
                     }}>X</button>
-                <h3 className={styles['shoppingCartHeader']}>Your Shopping Cart</h3>
-                {cartItems.length == 0 ? <p>It Looks like you dont have anything in your cart...</p> : null}
+                <h3 className={styles['shoppingCartHeader']}>🛒 Your Shopping Cart 🛒</h3>
+                {cartItems.length == 0 ? <p className={styles['emptyCartText']}>It looks like you don&apos;t have anything in your cart...</p> : null}
                 <ul className={styles['unorderedItemList']}>
                     {cartItems.map((item, index) => {
                         return (
