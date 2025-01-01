@@ -8,6 +8,7 @@ import CartContext from './CartContext.jsx';
 import SideBarContext from './SideBarContext.jsx';
 import ErrorBoundary from './ErrorBoundary.jsx';
 import ShoppingCartSideBar from './ShoppingCartSideBar.jsx';
+import Checkout from './Checkout.jsx';
 
 
 
@@ -27,7 +28,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/shop' element={<Shop/>} errorElement={<ErrorBoundary/>}/>
           <Route path='*' element={<ErrorBoundary/>}/>
-          {/* <Route path='/checkout' element={}/> */}
+          <Route path='/checkout' element={<Checkout/>} cartItems={cartItems} setCartItems={setCartItems}/>
         </Routes>
       </CartContext.Provider>
       </SideBarContext.Provider>

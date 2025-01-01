@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import SideBarContext from './SideBarContext.jsx';
 import styles from './ShoppingCartSideBar.module.css';
 import CartItem from './CartItem.jsx';
+import { Link } from "react-router-dom";
 
 
 function ShoppingCartSideBar({cartItems, setCartItems}) {
@@ -34,7 +35,10 @@ if (showSideBar) {
                 <h4 className={styles['overallTotal']}>Total: ${Number(cartItems.reduce((acc, curr) => {
                     return acc + Number(curr.totalPrice)
                 }, 0)).toFixed(2)}</h4>
-                <button className={styles['checkoutBtn']}>Checkout</button>
+                {cartItems.length != 0 ? (<Link className={styles['checkoutLink']} to={'/checkout'} onClick={() => {
+                    setShowSideBar(prev => false)
+                }}><button className={styles['checkoutBtn']}>Checkout</button></Link>) : null}
+                
             </aside>
         </div>
         </>

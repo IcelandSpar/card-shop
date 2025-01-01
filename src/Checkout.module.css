@@ -1,0 +1,31 @@
+.checkoutContainer {
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: whitesmoke;
+    font-size: 1.7rem;
+}
+
+.shopLink {
+    background: linear-gradient(gold, rgb(109, 93, 0));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: gold underline;
+    
+}
+
+.checkoutHeader {
+    font-size: 2rem;
+}
+
+.unorderedItemList {
+    margin: 0;
+    padding: 0;
+}
+
+.totalContainer {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+}
