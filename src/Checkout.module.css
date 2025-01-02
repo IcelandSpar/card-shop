@@ -3,7 +3,7 @@
     margin: 0 auto;
     padding: 2rem 1rem;
     color: whitesmoke;
-    font-size: 1.7rem;
+
 }
 
 .shopLink {
@@ -19,6 +19,99 @@
     font-size: 2rem;
 }
 
+
+
+.checkoutCartItems {
+    font-size: 1.7rem;
+}
+
+.checkoutCartListAndPayment {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.checkoutPayment {
+    position: sticky;
+    align-self: start;
+    top: 9rem;
+}
+
+.nameLabelAndInput {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 1.2rem;
+    gap: 1rem;
+}
+
+.firstNameFormSect, .lastNameFormSect {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+
+
+.emailLabelAndInput, .phoneLabelAndInput, .addressLabelAndInput, .cardNum {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.nameLabelAndInput input, .emailLabelAndInput input, .phoneLabelAndInput input, .addressLabelAndInput input, .cardNum input {
+    font-size: 1.2rem;
+}
+
+.cardNum {
+    margin-top: 1rem;
+}
+.cardNum input {
+    width: 100%;
+}
+
+.cvv, .zipCode {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cvvAndZipCode {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    gap: 1rem;
+}
+
+.cvv input, .zipCode input {
+    font-size: 1.2rem;
+}
+
+.restOfAddressInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+
+}
+
+.restOfAddressInfo input {
+    font-size: 1.2rem;
+}
+
+.checkoutNoItems {
+    font-size: 2rem;
+    margin: 2rem 0;
+}
+
+.firstNameFormSect {
+    
+}
+
 .unorderedItemList {
     margin: 0;
     padding: 0;
@@ -28,4 +121,14 @@
     margin: 1rem 0;
     display: flex;
     justify-content: flex-end;
+    font-size: 2rem;
+}
+
+.purchaseBtn {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    width: 100%;
+    border-radius: 15px;
+    cursor: pointer;
 }
